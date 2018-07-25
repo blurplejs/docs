@@ -9,13 +9,13 @@ class Example extends Bot {
         bot.command('!compliment', this.giveCompliments)
     }
 
-    async giveCompliments (user, message) {
+    async giveCompliments (message) {
         let data = await rp({ uri: complimentsApi, json: true })
 
         let random = Math.floor(Math.random() * data.feed.entry.length)
         let compliment = data.feed.entry[random]['gsx$compliments']['$t']
         
-        message.channel.send(`${user}: ${compliment}`)
+        message.channel.send(`${message.author}: ${compliment}`)
     }
 
 }

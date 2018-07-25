@@ -16,7 +16,7 @@ Create a `package.json` in an empty directory where your bots will live. The `pa
     },
     "dependencies": {
         "@blurple/runtime": "~1.0",
-        "your-favorite-bot-extension": "latest",
+        "@blurple/example": "latest",
         "custom-local-bot-extension": "file:../bot"
     }
 }

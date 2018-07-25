@@ -23,7 +23,8 @@ module.exports = {
                 title: 'Bot Extensions',
                 collapsable: false,
                 children: [
-                    '/extensions/usage',
+                    '/extensions/setup',
+                    '/extensions/api',
                     '/extensions/example'
                 ]
             }

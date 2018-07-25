@@ -1,5 +1,5 @@
 # Example
-This is a quick
+This is a quick example of a usable bot that can be embedded 
 
 ## package.json
 <<< @/docs/example/package.json{2,5,8}
@@ -9,7 +9,7 @@ In addition we require the `@blurple/extension` library so we can make use of th
 
 ## index.js
 <<< @/docs/example/index.js
-Now, whenever someone writes `!compliment` in any channel that your bot has access to, your bot will respond to that user with a random compliment pulled from a list of compliments.
+Now, whenever someone writes `!compliment` in any channel that your bot has access to, your bot will respond to that user with a random compliment pulled from an external list of compliments.
 
 ::: warning
 Although you currently have to hard-code your command prefix, this won't always be the case. We intend to allow for prefix defaults, customizations per bot and perhaps even per-server/bot customizations.

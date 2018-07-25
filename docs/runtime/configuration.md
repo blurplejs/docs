@@ -8,7 +8,7 @@ To configure your runtime, all you need is a `blurple.json` alongside your exist
         "token": "xAABBCCDDEEFFGG...",
         "owner": "DiscordUser#5629",
         "extensions": [
-            "your-favorite-bot-extension",
+            "@blurple/example",
             "custom-local-bot-extension",
             "./src/anotherExtension"
         ]
