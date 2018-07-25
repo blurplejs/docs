@@ -23,7 +23,7 @@ git add -A
 if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
     git config user.email "travis@travis-ci.org"
     git config user.name "Travis CI"
-    git commit -m "Travis build: $TRAVIS_BUILD_NUMBER"
+    git commit -m "$(echo "Travis build: $TRAVIS_BUILD_ID\n\n$TRAVIS_COMMIT_MESSAGE")"
     git remote add origin https://${GH_TOKEN}@github.com/blurplejs/docs.git
 else
     git commit -m "Manual deploy"
