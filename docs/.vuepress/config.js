@@ -3,17 +3,25 @@ module.exports = {
     description: 'This is the blues.',
     base: '/docs/',
     themeConfig: {
+        repo: 'blurplejs/runtime',
+        docsRepo: 'blurplejs/docs',
+        docsDir: 'docs',
+        editLinks: true,
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last updated',
         sidebar: [
             ['/', 'Start'],
             {
-                'title': 'Runtime',
+                title: 'Runtime',
                 collapsable: false,
                 children: [
+                    '/runtime/installation',
+                    '/runtime/configuration',
                     '/runtime/usage'
                 ]
             },
             {
-                'title': 'Extensions',
+                title: 'Bot Extensions',
                 collapsable: false,
                 children: [
                     '/extensions/usage'
