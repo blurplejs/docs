@@ -1,4 +1,4 @@
-# Adding commands
+# Usage
 ```js
 register (bot) {
     bot.command('users', this.getAllUsers)

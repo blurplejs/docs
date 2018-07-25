@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "blurple.js documentation",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "devDependencies": {
     "vuepress": "^0.12.0"
