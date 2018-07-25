@@ -46,7 +46,7 @@ Your command handler receives two arguments:
 - The parsed list of arguments provided by the user
 
 ::: tip
-There is no need to bind the context of your command handlers via `.bind(this)`. This is automatically done for you by the extension API. However, this also means that you can't bind the `this` context to something else.
+There is no need to bind the context of your command handlers via `.bind(this)`. This is automatically done for you by the runtime. However, this also means that you can't bind the context to something else.
 :::
 
 

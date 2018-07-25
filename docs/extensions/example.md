@@ -1,11 +1,11 @@
 # Example
-This is a quick example of a usable bot that can be embedded 
+This is a quick example of a usable bot that can be embedded in a runtime as-is.
 
 ## package.json
 <<< @/docs/example/package.json{2,5,8}
-The `package.json` can be extremely simple. Since this is a public plugin, it needs a `name`, `description` and `version` field. 
+Since this is a public package the `name` and `version` fields are required. The `main` field needs to point to a file that exports _only_ the extension you want to expose to blurple.js.
 
-In addition we require the `@blurple/extension` library so we can make use of the Extension API.
+For this extension we require the `@blurple/extension` library so we can make use of the Extension API and a request library to
 
 ## index.js
 <<< @/docs/example/index.js

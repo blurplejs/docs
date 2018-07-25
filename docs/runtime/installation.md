@@ -1,6 +1,6 @@
 # Installation
 
-blurple is designed in a way that allows even non-developers to easily set up and host one or more discord bots (_as long as they're a little tech-savvy_). Still, there are some 
+blurple is designed in a way that allows even non-developers to easily set up and host one or more discord bots (_as long as they're a little tech-savvy_).
 
 ### Requirements
 - [Node.js](https://nodejs.org/en/) 8.0 or newer

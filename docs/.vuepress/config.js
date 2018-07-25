@@ -25,6 +25,7 @@ module.exports = {
                 children: [
                     '/extensions/setup',
                     '/extensions/api',
+                    '/extensions/testing',
                     '/extensions/example'
                 ]
             }
