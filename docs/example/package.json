@@ -1,0 +1,12 @@
+{
+    "name": "@blurple/example",
+    "description": "The official blurple.js example Discord Bot",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Christopher Mühl <christopher@padarom.io>",
+    "dependencies": {
+        "@blurple/extension": "latest",
+        "request": "^2.87.0",
+        "request-promise-native": "^1.0.5"
+    }
+}
