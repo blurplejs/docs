@@ -1,7 +1,6 @@
 module.exports = {
     title: 'blurple.js',
-    description: 'This is the blues.',
-    base: '/docs/',
+    description: 'The blurple.js Discord Bot Framework',
     themeConfig: {
         repo: 'blurplejs/runtime',
         docsRepo: 'blurplejs/docs',
