@@ -1,4 +1,4 @@
-const Bot = require('@blurple/extension')
+const Bot = require('@blurple/extension').Bot
 const rp = require('request-promise-native')
 
 const complimentsApi = 'https://spreadsheets.google.com/feeds/list/1eEa2ra2yHBXVZ_ctH4J15tFSGEu-VTSunsrvaCAV598/od6/public/values?alt=json'
@@ -14,8 +14,8 @@ class Example extends Bot {
 
         let random = Math.floor(Math.random() * data.feed.entry.length)
         let compliment = data.feed.entry[random]['gsx$compliments']['$t']
-        
-        message.channel.send(`${message.author}: ${compliment}`)
+
+        message.channel.send(`${message.author} ${compliment}`)
     }
 
 }
