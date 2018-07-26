@@ -11,19 +11,44 @@ register (bot) {
     bot.command('compliment').then(this.writeCompliment)
 }
 ```
-Registering commands is simple: Specify the command name and optionally a set of arguments that can be sent with it.
+
+When registering commands you have to specify the command name and optionally a list of arguments. The following ways of declaring arguments are supported:
+- required argument (`{foo}`)
+- optional argument (`{foo?}`)
+- optional argument with a default value (`{foo=bar}`)
+- variadic arguments (`{foo*}`), i.e. everything that comes after is compressed into a list
+
+Arguments are parsed positionally, so if the first argument is `{foo}`, then the first word the user sends as an argument is going to be used for `foo`.
+
+::: warning
+Required arguments always have to come first and variadic arguments last. There can only ever be at most one variadic argument per command.
+:::
 
 ```js
-// Optional argument ...
-'compliment {user?}'
+// The command signature ...
+'example {a} {b} {c?} {d=test} {e*}'
 
-// Optional argument with a default value ...
-'compliment {when=now}'
+// With input:
+'example foo bar'
+// =>
+{
+    a: 'foo',
+    b: 'bar',
+    c: null,
+    d: 'test',
+    e: []
+}
 
-// List of arguments ...
-'compliment {user*}'
-// Only one argument list is allowed per command.
-// Lists have to be the last argument.
+// With input:
+'example foo bar soup noodles cheese cheddar parmesan'
+// =>
+{
+    a: 'foo',
+    b: 'bar',
+    c: 'soup',
+    d: 'noodles',
+    e: ['cheese', 'cheddar', 'parmesan']
+}
 ```
 
 ### Synonyms
