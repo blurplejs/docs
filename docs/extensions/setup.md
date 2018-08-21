@@ -5,74 +5,58 @@ sidebarDepth: 3
 # Setup
 Generally you want to provide your bots with some base configuration and register some listeners and commands when it starts. This is what the `register` method is for, which receives a `BotCustomizer` as its only parameter.
 
+
 ## Commands
 ```js
 register (bot) {
-    bot.command('compliment').then(this.writeCompliment)
+    bot.command('compliment').call(this.writeCompliment)
 }
 ```
 
-When registering commands you have to specify the command name and optionally a list of arguments. The following ways of declaring arguments are supported:
-- required argument (`{foo}`)
-- optional argument (`{foo?}`)
-- optional argument with a default value (`{foo=bar}`)
-- variadic arguments (`{foo*}`), i.e. everything that comes after is compressed into a list
+To register a command, call the `.command(name)` method on the `BotCustomizer`. This will return a `CommandCustomizer` object,
+which you can use to specify your command.
 
-Arguments are parsed positionally, so if the first argument is `{foo}`, then the first word the user sends as an argument is going to be used for `foo`.
+### Handler
+Like in the example above, `.call(this.writeCompliment)` registers the class method `writeCompliments` as this command's handler.
 
-::: warning
-Required arguments always have to come first and variadic arguments last. There can only ever be at most one variadic argument per command.
-:::
-
-```js
-// The command signature ...
-'example {a} {b} {c?} {d=test} {e*}'
-
-// With input:
-'example foo bar'
-// =>
-{
-    a: 'foo',
-    b: 'bar',
-    c: null,
-    d: 'test',
-    e: []
-}
-
-// With input:
-'example foo bar soup noodles cheese cheddar parmesan'
-// =>
-{
-    a: 'foo',
-    b: 'bar',
-    c: 'soup',
-    d: 'noodles',
-    e: ['cheese', 'cheddar', 'parmesan']
-}
-```
-
-### Synonyms
-You can add synonyms to your commands by calling the `.synonym` method on it:
-
-```js
-bot.command('compliment')
-    .then(this.writeCompliment)
-    .synonym('spread some love')
-    .synonym('please love me')
-```
-
-::: warning
-Only your initial command can specify arguments. They are not allowed when adding synonyms to existing commands.
-:::
-
-### Command handler
-Your command handler receives two arguments:
+When a user calls the command, your handler is called with two arguments:
 - The [`Message`][1] that was received
 - The parsed list of arguments provided by the user
 
 ::: tip
 There is no need to bind the context of your command handlers via `.bind(this)`. This is automatically done for you by the runtime. However, this also means that you can't bind the context to something else.
 :::
+### Aliases
+You can specify an infinite number of aliases with `.alias(name)` or `.synonym(name)`. If a different command already uses this alias, an exception is thrown.
 
+### Arguments
+```js
+register (bot) {
+    bot.command('hello')
+        .required('foo')
+        .optional('bar')
+        .optional('baz', 'name')
+        .optional('boo', (message) => message.author.name)
+        .remaining('others')
+}
+```
+All arguments are positional. The order in which the arguments are parsed when the command is issued is the same that was used to specify them.
+
+#### Required arguments
+Required arguments are needed for the command to be executed correctly. If they are not provided by the issuer the bot will respond with a default error message.
+
+Required arguments always have to come before any optional or the `remaining` arguments.
+
+#### Optional arguments
+Optional arguments can either have no default (`null`), a static value (`name`) or a function that takes the incoming message and returns the default value. In the example argument `boo` above, this would be the name of the issuer of the command.
+
+#### Remaining (`variadic`) arguments
+If you need the user to enter a list of things with arbitrary length, you can make use of variadic arguments. After all the previous arguments have been parsed, any remaining ones will be placed in an array for you.
+
+There can only be one of these variadic arguments per command and it has to be specified as the last one.
+
+::: tip
+`.variadic(name)` is a synonym to `.remaining(name)`.
+:::
 
 [1]: https://discord.js.org/#/docs/main/stable/class/Message

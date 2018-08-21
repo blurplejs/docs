@@ -6,7 +6,7 @@ const complimentsApi = 'https://spreadsheets.google.com/feeds/list/1eEa2ra2yHBXV
 class Example extends Bot {
 
     register (bot) {
-        bot.command('!compliment').then(this.giveCompliments)
+        bot.command('!compliment').call(this.giveCompliments)
     }
 
     async giveCompliments (message) {
