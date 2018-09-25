@@ -35,3 +35,22 @@ If you want to specify multiple owners, you need to use the JSON array syntax:
 "owner": ["DiscordUser#7342", "FriendlyHuman#6345"]
 ```
 :::
+
+## Webhooks
+Webhooks are an easy way to respond to events coming from an external service besides Discord. For instance if you want to link your website users with their Discord accounts, you can call the webhook once the user has registered to make the bot greet him via a direct message.
+
+To enable webhooks you need to create a `webhook.json` in the same directory as your `blurple.json`.
+
+```json
+{
+    "port": "8083",
+    "ssl": {
+        "key": "/path/to/privatekey.pem",
+        "cert": "/path/to/certificate.pem"
+    }
+}
+```
+
+`port` is the only required field of this configuration file. This specifies the port your bot is listening to. Default ports are 80 for HTTP and 443 for HTTPS. Make sure other applications aren't also using this port.
+
+If you want to enable HTTPS, you need to specify the `ssl` key with a path to your certificates private key (`key`) and the certificate itself (`cert`).

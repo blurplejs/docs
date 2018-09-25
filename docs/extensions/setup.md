@@ -3,8 +3,8 @@ sidebarDepth: 3
 ---
 
 # Setup
-Generally you want to provide your bots with some base configuration and register some listeners and commands when it starts. This is what the `register` method is for, which receives a `BotCustomizer` as its only parameter.
 
+Generally you want to provide your bots with some base configuration and register some listeners and commands when it starts. This is what the `register` method is for, which receives a `BotCustomizer` as its only parameter.
 
 ## Commands
 ```js
@@ -26,6 +26,7 @@ When a user calls the command, your handler is called with two arguments:
 ::: tip
 There is no need to bind the context of your command handlers via `.bind(this)`. This is automatically done for you by the runtime. However, this also means that you can't bind the context to something else.
 :::
+
 ### Aliases
 You can specify an infinite number of aliases with `.alias(name)` or `.synonym(name)`. If a different command already uses this alias, an exception is thrown.
 
@@ -40,6 +41,7 @@ register (bot) {
         .remaining('others')
 }
 ```
+
 All arguments are positional. The order in which the arguments are parsed when the command is issued is the same that was used to specify them.
 
 #### Required arguments
@@ -58,5 +60,14 @@ There can only be one of these variadic arguments per command and it has to be s
 ::: tip
 `.variadic(name)` is a synonym to `.remaining(name)`.
 :::
+
+## Webhooks
+```js
+register (bot) {
+    bot.webhook('/registered').call(this.welcomeUser)
+}
+```
+
+Webhooks respond to `GET` requests by default. You may also call `.post()` on the webhook for it to respond to `POST` requests instead.
 
 [1]: https://discord.js.org/#/docs/main/stable/class/Message

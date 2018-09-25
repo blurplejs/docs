@@ -23,4 +23,4 @@ This is also the component you will need if you just want to get started with wr
 Used by anyone who wants to write their own bot and distribute it.
 
 ## License
-blurple.js is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/). We are in no way affiliated with or endorsed by Discord.
+blurple.js is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/). This is a fan project, we are in no way affiliated with or endorsed by Discord.
