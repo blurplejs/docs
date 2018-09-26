@@ -10,11 +10,20 @@ To configure your runtime, all you need is a `blurple.json` alongside your exist
         "extensions": [
             "@blurple/example",
             "custom-local-bot-extension",
-            "./src/anotherExtension"
+            [
+                "./src/anotherExtension",
+                {
+                    "parameter-a": "some-value",
+                    "parameter-b": true
+                }
+            ]
         ]
     }
 }
 ```
+In the example above three extension are enabled for the bot: `@blurple/example`, `custom-local-bot-extension` and `./src/anotherExtension`. The prior two do not require any additional configuration and thus can be included as is. The third extension however requires you to set some parameters so it can work slightly different on a per-bot basis.
+
+When you have an extension that you wish to customize, instead of specifying just the name of the extension, you specify an array whose first element is the name of the extension and whose second element is an object containing your customizations.
 
 ## Options
 ### `token`

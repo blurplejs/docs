@@ -7,7 +7,7 @@ blurple is designed in a way that allows even non-developers to easily set up an
 - npm (usually included with Node.js)
 
 ### Setup
-Create a `package.json` in an empty directory where your bots will live. The `package.json` needs to contain at minimum the `@blurple/runtime` dependency and optionally a start script and other dependencies (e.g. blurple bot extensions).
+Create a `package.json` in an empty directory where your bots will live. The `package.json` needs to contain at minimum the `@blurple/runtime` dependency and can optionally have a start script and other dependencies (e.g. blurple bot extensions).
 
 ```json
 {
