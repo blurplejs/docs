@@ -1,4 +1,4 @@
-# Installation
+# Getting Started
 
 blurple is designed in a way that allows even non-developers to easily set up and host one or more discord bots (_as long as they're a little tech-savvy_).
 

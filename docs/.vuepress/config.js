@@ -32,14 +32,15 @@ module.exports = {
 
 function getGuideSidebar () {
     return [
-        ['', 'Start'],
         {
             title: 'Runtime',
             collapsable: false,
             children: [
-                'runtime/installation',
-                'runtime/configuration',
-                'runtime/usage'
+                '',
+                'getting-started',
+                'configuration',
+                'usage',
+                'deploying',
             ]
         },
         {

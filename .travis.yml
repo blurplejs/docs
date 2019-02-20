@@ -1,6 +1,7 @@
 lang: node_js
-node_js: "11"
-before_install: npm install
+node_js: 
+  - "11"
+before_install: yarn
 script: ./deploy.sh
 only: master
 env:
