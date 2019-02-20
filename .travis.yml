@@ -1,4 +1,5 @@
 lang: node_js
+node_js: "11"
 before_install: npm install
 script: ./deploy.sh
 only: master
