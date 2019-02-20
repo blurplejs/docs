@@ -7,7 +7,10 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
-    "vuepress": "^0.14.0"
+    "vuepress": "^1.0.0-alpha.37"
   },
-  "author": "Christopher Mühl <christopher@padarom.io>"
+  "author": "Christopher Mühl <christopher@padarom.io>",
+  "dependencies": {
+    "vuepress-plugin-code-switcher": "^1.0.0"
+  }
 }
