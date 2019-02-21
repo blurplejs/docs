@@ -57,6 +57,9 @@ function getGuideSidebar () {
 
 function getTestingSidebar () {
     return [
-
+        '',
+        'getting-started',
+        'other-languages',
+        'interaction',
     ]
 }
